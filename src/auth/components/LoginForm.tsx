@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useQueryClient } from 'react-query'
-import { useNavigate } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
@@ -29,9 +29,6 @@ export const LoginForm = () => {
   const onSubmit = async (data: LoginFormValues) => {
     mutation.mutate(data, {
       onSuccess: (data) => {
-        toast("Inicio de sesión exitoso", {
-          description: "Redirigiendo al dashboard...",
-        });
         localStorage.setItem("token", data.access_token); // Guarda el token JWT
         queryClient.invalidateQueries(['currentUser']);
         navigate("/dashboard");
@@ -91,12 +88,12 @@ export const LoginForm = () => {
         />
 
         <div className="flex justify-end">
-          <a
-            href="/forgot-password"
+          <NavLink
+            to="/auth/forgot-password"
             className="text-sm text-pink-600 hover:text-pink-500"
           >
             ¿Olvidaste tu contraseña?
-          </a>
+          </NavLink>
         </div>
         <Button className="w-full bg-gradient-to-r from-[#FF69B4] to-[#9370DB] hover:from-[#FF1493] hover:to-[#8A2BE2]">
           {/* { mutation.isLoading && (<Icons.spinner className="mr-2 h-4 w-4 animate-spin" />) } */}
