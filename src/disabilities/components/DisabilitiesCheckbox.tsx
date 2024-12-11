@@ -42,7 +42,7 @@ export const DisabilitiesCheckboxGroup: React.FC<DisabilitiesCheckboxGroupProps>
       render={({ field }) => (
         <FormItem>
           <div className="mb-4">
-            <FormLabel className="text-base">Discapacidades</FormLabel>
+            <FormLabel>Discapacidades</FormLabel>
             <FormDescription>
               Selecciona todas las discapacidades que apliquen.
             </FormDescription>
