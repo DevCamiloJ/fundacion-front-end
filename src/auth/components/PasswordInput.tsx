@@ -27,8 +27,8 @@ export const PasswordInput = React.forwardRef<HTMLInputElement, React.ComponentP
         >
           {
             showPassword 
-              ? <Icons.eyeOff className="h-4 w-4 text-gray-500" />
-              :  <Icons.eye className="h-4 w-4 text-gray-500" />
+              ? <Icons.EyeOff className="h-4 w-4 text-gray-500" />
+              :  <Icons.Eye className="h-4 w-4 text-gray-500" />
           }
           <span className="sr-only">
             {showPassword ? "Ocultar contraseña" : "Mostrar contraseña"}
