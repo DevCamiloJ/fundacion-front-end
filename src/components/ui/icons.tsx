@@ -1,13 +1,13 @@
-import { LuBarChart3, LuChevronRight, LuChevronsUpDown, LuCrown, LuEye, LuEyeOff, LuHome, LuLogOut, LuMapPin, LuPalette, LuPencil, LuPlus, LuSchool, LuSettings, LuSparkles, LuStethoscope, LuUsers } from 'react-icons/lu';
+import { LuAlertCircle, LuBarChart3, LuChevronRight, LuChevronsUpDown, LuCrown, LuEye, LuEyeOff, LuHome, LuLogOut, LuMapPin, LuPalette, LuPencil, LuPlus, LuSchool, LuSettings, LuSparkles, LuStethoscope, LuUsers } from 'react-icons/lu';
 import { ImSpinner8 } from 'react-icons/im';
 import { FcGoogle } from 'react-icons/fc';
 import { FaImage } from "react-icons/fa6";
 
 export const Icons = {
-  spinner: ImSpinner8,
-  google: FcGoogle,
-  eye: LuEye,       
-  eyeOff: LuEyeOff,
+  Spinner: ImSpinner8,
+  Google: FcGoogle,
+  Eye: LuEye,       
+  EyeOff: LuEyeOff,
   Sparkles: LuSparkles,
   Crown: LuCrown,
   Home: LuHome,
@@ -23,5 +23,7 @@ export const Icons = {
   ChevronRight: LuChevronRight,
   Palete: LuPalette,
   Pencil: LuPencil,
-  Image: FaImage
+  Image: FaImage,
+  AlertCircle: LuAlertCircle,
 }
+
