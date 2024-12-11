@@ -1,6 +1,7 @@
 import { LuBarChart3, LuChevronRight, LuChevronsUpDown, LuCrown, LuEye, LuEyeOff, LuHome, LuLogOut, LuMapPin, LuPalette, LuPencil, LuPlus, LuSchool, LuSettings, LuSparkles, LuStethoscope, LuUsers } from 'react-icons/lu';
 import { ImSpinner8 } from 'react-icons/im';
 import { FcGoogle } from 'react-icons/fc';
+import { FaImage } from "react-icons/fa6";
 
 export const Icons = {
   spinner: ImSpinner8,
@@ -21,5 +22,6 @@ export const Icons = {
   Stethoscope: LuStethoscope,
   ChevronRight: LuChevronRight,
   Palete: LuPalette,
-  Pencil: LuPencil
+  Pencil: LuPencil,
+  Image: FaImage
 }
