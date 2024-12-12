@@ -7,6 +7,7 @@ import { DashboardLayout } from '@/dashboard/layouts/DashboardLayout';
 
 import { MembersPage } from '@/members/pages/MembersPage';
 import { AddMemberPage } from '@/members/pages/AddMemberPage';
+import { CountriesPage } from '@/countries/pages/CountriesPage';
 
 export const AppRouter = () => {
   return (
@@ -17,14 +18,18 @@ export const AppRouter = () => {
       </Route>
 
       <Route path='dashboard' element={<ProtectedRoute />}>
+        <Route path='' element={<Navigate to='/dashboard/miembros' replace />} />
         <Route path='' element={<DashboardLayout />}>
           <Route path='miembros'>
-            <Route path='' element={<MembersPage />} />
+            <Route index element={<MembersPage />} />
             <Route path='agregar' element={<AddMemberPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/miembros' replace />} />
           </Route>
-          <Route path='*' element={<Navigate to='/dashboard/miembros' replace />} />
+          <Route path='paises'>
+            <Route index element={<CountriesPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/paises' replace />} />
+          </Route>
         </Route>
-        <Route path='*' element={<Navigate to='/dashboard/miembros' replace />} />
       </Route>
 
       <Route path='*' element={<Navigate to='/auth/login' replace />} />

@@ -66,7 +66,6 @@ export const AddMemberForm = () => {
     console.log(data);
     // Asegúrate de que el campo imagen se esté manejando correctamente
     if (data.imagen) {
-      // Si hay un archivo para imagen, lo agregamos al FormData
       formData.append('imagen', data.imagen as File); // data.imagen debe ser un File, no un string
     }
 
@@ -87,12 +86,17 @@ export const AddMemberForm = () => {
     }
 
     // Si hay un array, asegúrate de que esté en formato adecuado
-    if (Array.isArray(data.areasInteres)) {
-      data.areasInteres.forEach((item) => formData.append('areasInteres', item));
+    /* if (Array.isArray(data.areasInteres)) {
+      data.areasInteres.forEach((item, index) => {
+        formData.append(`areasInteres[${index}]`, item);
+      });
     }
+    
     if (Array.isArray(data.discapacidades)) {
-      data.discapacidades.forEach((item) => formData.append('discapacidades', item));
-    }
+      data.discapacidades.forEach((item, index) => {
+        formData.append(`discapacidades[${index}]`, item);
+      });
+    } */
 
     for (const [key, value] of formData.entries()) {
       console.log(`${key}: ${value}`);

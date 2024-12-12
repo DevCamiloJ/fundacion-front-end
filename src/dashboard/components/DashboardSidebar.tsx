@@ -47,20 +47,20 @@ const configuracionItems = [
   {
     title: "Lugar de nacimiento",
     icon: Icons.MapPin,
-    url: "",
+    url: "/dashboard/paises",
     isActive: false,
     items: [
       {
         title: "País",
-        url: "#",
+        url: "/dashboard/paises",
       },
       {
         title: "Departamento",
-        url: "#",
+        url: "/dashboard/departamentos",
       },
       {
         title: "Ciudad",
-        url: "#",
+        url: "/dashboard/ciudades",
       },
     ],
   },

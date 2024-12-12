@@ -14,7 +14,14 @@ export const addMemberSchema = z.object({
   fechaNacimiento: z.date().nullable().refine(date => !date || date <= new Date(), {
     message: "La fecha de nacimiento no puede ser en el futuro",
   }),
-  imagen: z.instanceof(File).nullable().optional(),
+  imagen: z.instanceof(File)
+    .optional()
+    .refine((file) => !file || file.size <= 5 * 1024 * 1024, {
+      message: 'El archivo es demasiado grande. Máximo 5MB.',
+    })
+    .refine((file) => !file || file.type.startsWith('image/'), {
+      message: 'Solo se permiten imágenes',
+    }),
   paisNacimiento: z.string().min(1, "El país de nacimiento es obligatorio"),
   departamentoNacimiento: z.string().min(1, "El departamento de nacimiento es obligatorio"),
   ciudadNacimiento: z.string().min(1, "La ciudad de nacimiento es obligatoria"),
