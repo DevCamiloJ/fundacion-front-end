@@ -9,6 +9,7 @@ import { MembersPage } from '@/members/pages/MembersPage';
 import { AddMemberPage } from '@/members/pages/AddMemberPage';
 import { CountriesPage } from '@/countries/pages/CountriesPage';
 import { DepartamentsPage } from '@/departaments/pages/DepartamentsPage';
+import { CitiesPage } from '@/cities/pages/CitiesPage';
 
 export const AppRouter = () => {
   return (
@@ -33,6 +34,10 @@ export const AppRouter = () => {
           <Route path='departamentos'>
             <Route index element={<DepartamentsPage />} />
             <Route path='*' element={<Navigate to='/dashboard/departamentos' replace />} />
+          </Route>
+          <Route path='ciudades'>
+            <Route index element={<CitiesPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/ciudades' replace />} />
           </Route>
         </Route>
       </Route>
