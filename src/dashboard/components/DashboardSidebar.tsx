@@ -98,7 +98,7 @@ const configuracionItems = [
       },
       {
         title: "Grupo étnico",
-        url: "#",
+        url: "/dashboard/grupo-etnico",
       },
       {
         title: "Discapacidad",

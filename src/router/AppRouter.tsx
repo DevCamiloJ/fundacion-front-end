@@ -15,6 +15,7 @@ import { EpsPage } from '@/eps/pages/EpsPage';
 import { InteresTopicPage } from '@/interes-topic/pages/InteresTopicPage';
 import { SisbenScoresPage } from '@/sisben-score/pages/SisbenScoresPage';
 import { PopulationGroupsPage } from '@/population-group/pages/PopulationGroupPage';
+import { EthnicGroupsPage } from '@/ethnic-group/pages/EthnicGroupsPage';
 
 export const AppRouter = () => {
   return (
@@ -63,6 +64,10 @@ export const AppRouter = () => {
           <Route path='grupo-poblacional'>
             <Route index element={<PopulationGroupsPage />} />
             <Route path='*' element={<Navigate to='/dashboard/grupo-poblacional' replace />} />
+          </Route>
+          <Route path='grupo-etnico'>
+            <Route index element={<EthnicGroupsPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/grupo-etnico' replace />} />
           </Route>
         </Route>
       </Route>
