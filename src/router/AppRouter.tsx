@@ -10,6 +10,7 @@ import { AddMemberPage } from '@/members/pages/AddMemberPage';
 import { CountriesPage } from '@/countries/pages/CountriesPage';
 import { DepartamentsPage } from '@/departaments/pages/DepartamentsPage';
 import { CitiesPage } from '@/cities/pages/CitiesPage';
+import { InstitutionPage } from '@/institutions/pages/InstitutionsPage';
 
 export const AppRouter = () => {
   return (
@@ -38,6 +39,10 @@ export const AppRouter = () => {
           <Route path='ciudades'>
             <Route index element={<CitiesPage />} />
             <Route path='*' element={<Navigate to='/dashboard/ciudades' replace />} />
+          </Route>
+          <Route path='instituciones'>
+            <Route index element={<InstitutionPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/instituciones' replace />} />
           </Route>
         </Route>
       </Route>

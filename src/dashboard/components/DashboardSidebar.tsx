@@ -66,7 +66,7 @@ const configuracionItems = [
   },
   {
     title: "Instituciones educativas",
-    url: "#",
+    url: "/dashboard/instituciones",
     icon: Icons.School
   },
   {
