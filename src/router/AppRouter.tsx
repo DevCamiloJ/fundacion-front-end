@@ -14,6 +14,7 @@ import { InstitutionPage } from '@/institutions/pages/InstitutionsPage';
 import { EpsPage } from '@/eps/pages/EpsPage';
 import { InteresTopicPage } from '@/interes-topic/pages/InteresTopicPage';
 import { SisbenScoresPage } from '@/sisben-score/pages/SisbenScoresPage';
+import { PopulationGroupsPage } from '@/population-group/pages/PopulationGroupPage';
 
 export const AppRouter = () => {
   return (
@@ -58,6 +59,10 @@ export const AppRouter = () => {
           <Route path='puntajes-sisben'>
             <Route index element={<SisbenScoresPage />} />
             <Route path='*' element={<Navigate to='/dashboard/puntajes-sisben' replace />} />
+          </Route>
+          <Route path='grupo-poblacional'>
+            <Route index element={<PopulationGroupsPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/grupo-poblacional' replace />} />
           </Route>
         </Route>
       </Route>

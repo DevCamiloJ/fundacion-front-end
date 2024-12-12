@@ -90,7 +90,7 @@ const configuracionItems = [
       },
       {
         title: "Grupo poblacional",
-        url: "#",
+        url: "/dashboard/grupo-poblacional",
       },
       {
         title: "Tipo población",
