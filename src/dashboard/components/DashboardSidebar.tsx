@@ -71,7 +71,7 @@ const configuracionItems = [
   },
   {
     title: "EPS",
-    url: "#",
+    url: "/dashboard/eps",
     icon: Icons.Stethoscope,
   },
   {
