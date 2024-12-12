@@ -16,6 +16,7 @@ import { InteresTopicPage } from '@/interes-topic/pages/InteresTopicPage';
 import { SisbenScoresPage } from '@/sisben-score/pages/SisbenScoresPage';
 import { PopulationGroupsPage } from '@/population-group/pages/PopulationGroupPage';
 import { EthnicGroupsPage } from '@/ethnic-group/pages/EthnicGroupsPage';
+import { DisabilitiesPage } from '@/disabilities/pages/DisabilitiesPage';
 
 export const AppRouter = () => {
   return (
@@ -68,6 +69,10 @@ export const AppRouter = () => {
           <Route path='grupo-etnico'>
             <Route index element={<EthnicGroupsPage />} />
             <Route path='*' element={<Navigate to='/dashboard/grupo-etnico' replace />} />
+          </Route>
+          <Route path='discapacidades'>
+            <Route index element={<DisabilitiesPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/discapacidades' replace />} />
           </Route>
         </Route>
       </Route>

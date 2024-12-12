@@ -102,7 +102,7 @@ const configuracionItems = [
       },
       {
         title: "Discapacidad",
-        url: "#",
+        url: "/dashboard/discapacidades",
       },
     ]
   },
