@@ -8,6 +8,7 @@ import { DashboardLayout } from '@/dashboard/layouts/DashboardLayout';
 import { MembersPage } from '@/members/pages/MembersPage';
 import { AddMemberPage } from '@/members/pages/AddMemberPage';
 import { CountriesPage } from '@/countries/pages/CountriesPage';
+import { DepartamentsPage } from '@/departaments/pages/DepartamentsPage';
 
 export const AppRouter = () => {
   return (
@@ -28,6 +29,10 @@ export const AppRouter = () => {
           <Route path='paises'>
             <Route index element={<CountriesPage />} />
             <Route path='*' element={<Navigate to='/dashboard/paises' replace />} />
+          </Route>
+          <Route path='departamentos'>
+            <Route index element={<DepartamentsPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/departamentos' replace />} />
           </Route>
         </Route>
       </Route>
