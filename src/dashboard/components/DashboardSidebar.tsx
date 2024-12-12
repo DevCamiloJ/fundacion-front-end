@@ -77,7 +77,7 @@ const configuracionItems = [
   {
     title: "Temas de interés",
     icon: Icons.Palete,
-    url: "#",
+    url: "/dashboard/temas-interes",
   },
   {
     title: "Sisben",

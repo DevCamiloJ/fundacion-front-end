@@ -12,6 +12,7 @@ import { DepartamentsPage } from '@/departaments/pages/DepartamentsPage';
 import { CitiesPage } from '@/cities/pages/CitiesPage';
 import { InstitutionPage } from '@/institutions/pages/InstitutionsPage';
 import { EpsPage } from '@/eps/pages/EpsPage';
+import { InteresTopicPage } from '@/interes-topic/pages/InteresTopicPage';
 
 export const AppRouter = () => {
   return (
@@ -48,6 +49,10 @@ export const AppRouter = () => {
           <Route path='eps'>
             <Route index element={<EpsPage />} />
             <Route path='*' element={<Navigate to='/dashboard/eps' replace />} />
+          </Route>
+          <Route path='temas-interes'>
+            <Route index element={<InteresTopicPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/temas-interes' replace />} />
           </Route>
         </Route>
       </Route>
