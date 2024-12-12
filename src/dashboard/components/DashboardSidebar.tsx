@@ -82,11 +82,11 @@ const configuracionItems = [
   {
     title: "Sisben",
     icon: Icons.Pencil,
-    url: "#",
+    url: "/dashboard/puntajes-sisben",
     items: [
       {
         title: "Puntaje",
-        url: "#",
+        url: "/dashboard/puntajes-sisben",
       },
       {
         title: "Grupo poblacional",

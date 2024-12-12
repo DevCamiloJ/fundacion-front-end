@@ -13,6 +13,7 @@ import { CitiesPage } from '@/cities/pages/CitiesPage';
 import { InstitutionPage } from '@/institutions/pages/InstitutionsPage';
 import { EpsPage } from '@/eps/pages/EpsPage';
 import { InteresTopicPage } from '@/interes-topic/pages/InteresTopicPage';
+import { SisbenScoresPage } from '@/sisben-score/pages/SisbenScoresPage';
 
 export const AppRouter = () => {
   return (
@@ -53,6 +54,10 @@ export const AppRouter = () => {
           <Route path='temas-interes'>
             <Route index element={<InteresTopicPage />} />
             <Route path='*' element={<Navigate to='/dashboard/temas-interes' replace />} />
+          </Route>
+          <Route path='puntajes-sisben'>
+            <Route index element={<SisbenScoresPage />} />
+            <Route path='*' element={<Navigate to='/dashboard/puntajes-sisben' replace />} />
           </Route>
         </Route>
       </Route>
