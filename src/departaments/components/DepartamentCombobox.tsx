@@ -14,8 +14,6 @@ export function DepartamentCombobox({ value, onChange, countryId }: { value: str
   const [open, setOpen] = useState(false);
   const { data: departaments, isLoading, isError } = useFetchDepartmentsByCountry(countryId); // Usamos el hook de React Query
 
-  console.log({countryId, departaments });
-
   if (isLoading) {
     return <Button variant="outline" disabled className="w-full justify-between">Cargando...</Button>;
   }
