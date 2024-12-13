@@ -15,10 +15,11 @@ const columns: ColumnDef<Miembro>[] = [
     header: "Persona",
     cell: ({ row }) => {
       const person = row.original;
+      const imagenUrl = `${import.meta.env.VITE_API_URL}/members/image/${person.imagenUrl}`;
       return (
         <div className="flex items-center space-x-4">
           <Avatar className="w-10 h-10">
-            <AvatarImage src={person.imagenUrl || undefined} alt={`Foto de ${person.nombres}`} />
+            <AvatarImage src={imagenUrl} alt={`Foto de ${person.nombres}`} />
             <AvatarFallback>{person.nombres[0]}{person.apellidos[0]}</AvatarFallback>
           </Avatar>
           <div>
