@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useFetchSisbenScores } from "../hooks/useSisbenScore";
 import { SisbenScore } from "../types/sysben-score";
 
-export function SisbenScoreSelect({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+export function SisbenScoreSelect({ value, onChange }: { value?: string; onChange: (value: string) => void }) {
   const { data: sisbenScores, isLoading, isError } = useFetchSisbenScores();
 
   if (isLoading) {

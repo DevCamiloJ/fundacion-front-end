@@ -11,6 +11,26 @@ import { Miembro } from '../types/miembro';
 
 const columns: ColumnDef<Miembro>[] = [
   {
+    accessorKey: "imagenUrl",
+    header: "Imagen",
+    cell: ({ getValue }) => {
+      const imagenUrl = getValue<string>();
+      const apiUrl = import.meta.env.VITE_API_URL;
+
+      return imagenUrl ? 
+        (
+          <img src={`${apiUrl}/members/image/${imagenUrl}`} 
+            alt="Imagen Miembro" 
+            className="w-16 h-16 object-cover rounded-full" 
+          />
+        ) 
+        : 
+        (
+          <span>No disponible</span>
+        );
+    },
+  },
+  {
     accessorKey: "nombres",
     header: "Nombre",
   },

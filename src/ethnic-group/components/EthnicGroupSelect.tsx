@@ -6,7 +6,7 @@ import { useFetchEthnicGroups } from "../hooks/useEthnicGroup";
 import { EthnicGroup } from "../types/ethnic-group";
 
 
-export function EthnicGroupSelect({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+export function EthnicGroupSelect({ value, onChange }: { value?: string; onChange: (value: string) => void }) {
   const { data: ethnicGroups, isLoading, isError } = useFetchEthnicGroups();
 
   if (isLoading) {

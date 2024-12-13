@@ -11,11 +11,12 @@ export const addMemberSchema = z.object({
     .string()
     .min(1, "El número de documento es obligatorio")
     .regex(/^\d+$/, "El número de documento debe contener solo dígitos"),
-  fechaNacimiento: z.date().nullable().refine(date => !date || date <= new Date(), {
+  fechaNacimiento: z.date().refine(date => !date || date <= new Date(), {
     message: "La fecha de nacimiento no puede ser en el futuro",
   }),
   imagen: z.instanceof(File)
     .optional()
+    .nullable()
     .refine((file) => !file || file.size <= 5 * 1024 * 1024, {
       message: 'El archivo es demasiado grande. Máximo 5MB.',
     })
@@ -35,13 +36,13 @@ export const addMemberSchema = z.object({
     .refine(value => ["8", "10", "12", "14", "16", "S", "M", "L", "XL", "XXL"].includes(value), "Talla no válida"),
   institucionEducativa: z.string().optional(),
   grado: z.string().optional(),
-  fechaIngresoFundacion: z.date().nullable().refine(date => !date || date <= new Date(), {
+  fechaIngresoFundacion: z.date().refine(date => !date || date <= new Date(), {
     message: "La fecha de ingreso no puede ser en el futuro",
   }),
   eps: z.string().min(1, "La EPS es obligatoria"),
   puntajeSisben: z.string().optional(),
-  grupoPoblacional:  z.string().nullable().optional(),
-  grupoEtnico:  z.string().nullable().optional(),
+  grupoPoblacional:  z.string().optional(),
+  grupoEtnico:  z.string().optional(),
   numeroCasoVGB: z.string().optional(),
   numeroCasoViolenciaFamiliar: z.string().optional(),
   numeroCasoPsicologico: z.string().optional(),
@@ -66,8 +67,8 @@ export const defaultValues = {
   apellidos: "",
   tipoDocumento: "",
   numeroDocumento: "",
-  fechaNacimiento: null,
-  imagen: null,
+  fechaNacimiento: new Date(),
+  imagen: undefined,
   paisNacimiento: "",
   departamentoNacimiento: "",
   ciudadNacimiento: "",
@@ -75,11 +76,11 @@ export const defaultValues = {
   talla: "",
   institucionEducativa: "",
   grado: "",
-  fechaIngresoFundacion: null,
+  fechaIngresoFundacion: new Date(),
   eps: "",
   puntajeSisben: "",
-  grupoPoblacional: null,
-  grupoEtnico: null,
+  grupoPoblacional: "",
+  grupoEtnico: "",
   numeroCasoVGB: "",
   numeroCasoViolenciaFamiliar: "",
   numeroCasoPsicologico: "",

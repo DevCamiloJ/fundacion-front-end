@@ -6,7 +6,11 @@ export const membersService = {
     return response.data;
   },
   create: async (member: Record<string, any>) => {
-    const response = await axiosInstance.post("members", member);
+    const response = await axiosInstance.post("members", member, {
+      headers: {
+        'Content-Type': 'multipart/form-data'
+      }
+    });
     return response.data;
   },
   update: async (id: string, member: Record<string, any>) => {

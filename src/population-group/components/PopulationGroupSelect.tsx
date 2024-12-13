@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useFetchPopulationGroups } from "../hooks/usePopularionGroup";
 import { PopulationGroup } from "../types/population-group";
 
-export function PopularionGroupSelect({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+export function PopularionGroupSelect({ value, onChange }: { value?: string; onChange: (value: string) => void }) {
   const { data: populationGroups, isLoading, isError } = useFetchPopulationGroups();
 
   if (isLoading) {

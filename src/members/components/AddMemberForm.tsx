@@ -72,7 +72,10 @@ export const AddMemberForm = () => {
     // Agregar otros campos (como texto) al FormData
     Object.keys(data).forEach((key) => {
       const value = data[key as keyof AddMemberFormValues];
-      if (value !== undefined && value !== null && key !== 'imagen' && key !== 'fechaNacimiento' && key !== 'fechaIngresoFundacion') {
+      if (value !== undefined && value !== null 
+          && key !== 'imagen' && key !== 'fechaNacimiento' && key !== 'fechaIngresoFundacion'
+          && key !== 'areasInteres' && key !== 'discapacidades'
+      ) {
         formData.append(key, value as string | Blob);
       }
     });
@@ -86,7 +89,7 @@ export const AddMemberForm = () => {
     }
 
     // Si hay un array, asegúrate de que esté en formato adecuado
-    /* if (Array.isArray(data.areasInteres)) {
+    if (Array.isArray(data.areasInteres)) {
       data.areasInteres.forEach((item, index) => {
         formData.append(`areasInteres[${index}]`, item);
       });
@@ -96,7 +99,7 @@ export const AddMemberForm = () => {
       data.discapacidades.forEach((item, index) => {
         formData.append(`discapacidades[${index}]`, item);
       });
-    } */
+    } 
 
     for (const [key, value] of formData.entries()) {
       console.log(`${key}: ${value}`);
@@ -186,7 +189,7 @@ export const AddMemberForm = () => {
               render={({ field }) => (
                 <FormItem className="flex flex-col lg:col-span-2">
                   <FormLabel>Fecha de nacimiento</FormLabel>
-                  <DatePicker {...field} />
+                  <DatePicker onChange={field.onChange} value={field.value} />
                   <FormMessage />
                 </FormItem>
               )}
@@ -258,7 +261,7 @@ export const AddMemberForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>País de nacimiento</FormLabel>
-                <CountryCombobox {...field} />
+                <CountryCombobox onChange={field.onChange} value={field.value} />
                 <FormMessage />
               </FormItem>
             )}
@@ -380,7 +383,7 @@ export const AddMemberForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Institución educativa</FormLabel>
-                <EducationalInstitutionCombobox {...field} />
+                <EducationalInstitutionCombobox onChange={field.onChange} value={field.value} />
                 <FormMessage />
               </FormItem>
             )}
@@ -406,7 +409,7 @@ export const AddMemberForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Fecha de ingreso a la fundación</FormLabel>
-                <DatePicker {...field} />
+                <DatePicker onChange={field.onChange} value={field.value} />
                 <FormMessage />
               </FormItem>
             )}
@@ -420,7 +423,7 @@ export const AddMemberForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>EPS</FormLabel>
-                <EpsCombobox {...field} />
+                <EpsCombobox onChange={field.onChange} value={field.value} />
                 <FormMessage />
               </FormItem>
             )}
@@ -432,7 +435,7 @@ export const AddMemberForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Puntaje Sisben</FormLabel>
-                <SisbenScoreSelect {...field} />
+                <SisbenScoreSelect onChange={field.onChange} value={field.value} />
                 <FormMessage />
               </FormItem>
             )}
@@ -444,7 +447,7 @@ export const AddMemberForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Grupo poblacional</FormLabel>
-                <PopularionGroupSelect {...field} />
+                <PopularionGroupSelect onChange={field.onChange} value={field.value} />
                 <FormMessage />
               </FormItem>
             )}
@@ -456,7 +459,7 @@ export const AddMemberForm = () => {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Grupo étnico</FormLabel>
-                <EthnicGroupSelect {...field} />
+                <EthnicGroupSelect onChange={field.onChange} value={field.value} />
                 <FormMessage />
               </FormItem>
             )}
@@ -537,7 +540,7 @@ export const AddMemberForm = () => {
               <FormItem>
                 <FormLabel>Discapacidad medica</FormLabel>
                 <FormControl>
-                  <Textarea rows="4" {...field} />
+                  <Textarea rows={4} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

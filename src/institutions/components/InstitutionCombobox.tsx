@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { useFetchEducationalInstitutions } from '../hooks/useInstitutions';
 
 
-export function EducationalInstitutionCombobox({ value, onChange }: { value: string; onChange: (value: string) => void }) {
+export function EducationalInstitutionCombobox({ value, onChange }: { value?: string; onChange: (value: string) => void }) {
   const [open, setOpen] = useState(false);
   const { data: institutions, isLoading, isError } = useFetchEducationalInstitutions(); // No pasa el countryId
 
