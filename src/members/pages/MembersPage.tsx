@@ -1,6 +1,5 @@
 import { ColumnDef } from '@tanstack/react-table'
 import { Link } from 'react-router-dom';
-import { format } from 'date-fns'
 
 import { DataTable } from '@/components/ui/data-table';
 import { Button } from '@/components/ui/button';
@@ -8,63 +7,51 @@ import { Icons } from '@/components/ui/icons';
 
 import { useFetchMembers } from '../hooks/useMembers'
 import { Miembro } from '../types/miembro';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const columns: ColumnDef<Miembro>[] = [
   {
-    accessorKey: "imagenUrl",
-    header: "Imagen",
-    cell: ({ getValue }) => {
-      const imagenUrl = getValue<string>();
-      const apiUrl = import.meta.env.VITE_API_URL;
-
-      return imagenUrl ? 
-        (
-          <img src={`${apiUrl}/members/image/${imagenUrl}`} 
-            alt="Imagen Miembro" 
-            className="w-16 h-16 object-cover rounded-full" 
-          />
-        ) 
-        : 
-        (
-          <span>No disponible</span>
-        );
+    accessorKey: "nombres",
+    header: "Persona",
+    cell: ({ row }) => {
+      const person = row.original;
+      return (
+        <div className="flex items-center space-x-4">
+          <Avatar className="w-10 h-10">
+            <AvatarImage src={person.imagenUrl || undefined} alt={`Foto de ${person.nombres}`} />
+            <AvatarFallback>{person.nombres[0]}{person.apellidos[0]}</AvatarFallback>
+          </Avatar>
+          <div>
+            <div className="font-medium">{person.nombres} {person.apellidos}</div>
+            <div className="text-sm text-muted-foreground">{person.tipoDocumento}: {person.numeroDocumento}</div>
+          </div>
+        </div>
+      );
     },
   },
   {
-    accessorKey: "nombres",
-    header: "Nombre",
-  },
-  {
-    accessorKey: "apellidos",
-    header: "Apellidos",
-  },
-  {
-    accessorKey: "tipoDocumento",
-    header: "Tipo Documento",
-  },
-  {
-    accessorKey: "numeroDocumento",
-    header: "Número Documento",
-  },
-  {
     accessorKey: "fechaNacimiento",
-    header: "Fecha Nacimiento",
-    cell: ({ getValue }) => {
-      const rawDate = getValue<string>(); // Obtener la fecha cruda
-      return format(new Date(rawDate), "dd/MM/yyyy"); // Formatear la fecha
-    }
+    header: "Fecha de Nacimiento",
   },
   {
-    accessorKey: "ciudadNacimiento.nombre",
-    header: "Ciudad Nacimiento",
+    accessorKey: "grado",
+    header: "Grado",
   },
   {
-    accessorKey: "paisNacimiento.nombre",
-    header: "País Nacimiento",
+    accessorKey: "institucionEducativa.nombre",
+    header: "Institución Educativa",
   },
   {
-    accessorKey: "acudiente",
-    header: "Acudiente",
+    accessorKey: "eps.nombre",
+    header: "EPS",
+  },
+  {
+    accessorKey: "puntajeSisben.puntaje",
+    header: "Puntaje Sisben",
+  },
+  {
+    accessorKey: "grupoPoblacional.nombre",
+    header: "Grupo Poblacional",
   },
 ];
 

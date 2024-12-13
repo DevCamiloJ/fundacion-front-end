@@ -73,7 +73,7 @@ export const LoginForm = () => {
           name="password"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Correo electrónico</FormLabel>
+              <FormLabel>Contraseña</FormLabel>
               <FormControl>
                 <PasswordInput 
                   id="password" 

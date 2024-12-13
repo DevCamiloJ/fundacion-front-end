@@ -18,4 +18,5 @@ export interface Miembro {
   discapacidad:         boolean;
   condicionMedica:      string;
   estado:               boolean;
+  imagenUrl:            string;
 }
